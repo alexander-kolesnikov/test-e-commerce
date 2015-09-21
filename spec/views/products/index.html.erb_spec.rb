@@ -26,6 +26,5 @@ RSpec.describe "products/index", type: :view do
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => "9.99".to_s, :count => 2
     assert_select "tr>td", :text => 1.to_s, :count => 2
-    assert_select "tr>td", :text => "Image".to_s, :count => 2
   end
 end
