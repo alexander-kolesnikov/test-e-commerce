@@ -6,6 +6,7 @@ class CreateProducts < ActiveRecord::Migration
       t.decimal :price
       t.integer :stock_level
       t.string :image
+      t.string :slug
 
       t.timestamps null: false
     end
