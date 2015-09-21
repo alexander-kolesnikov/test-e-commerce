@@ -20,6 +20,9 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
+needed for refile
+brew install imagemagick # OS X
+sudo apt-get install imagemagick # Ubuntu
 
 * ...
 

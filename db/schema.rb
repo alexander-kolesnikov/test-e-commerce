@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20150921082029) do
     t.text     "description"
     t.decimal  "price"
     t.integer  "stock_level"
-    t.string   "image"
+    t.string   "image_id"
     t.string   "slug"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
