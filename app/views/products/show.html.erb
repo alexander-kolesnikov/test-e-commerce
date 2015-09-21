@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 <p>
+  <strong>Product category</strong>
+  <%= @product.category.title %>
+</p>
+
+<p>
 <%= image_tag attachment_url(@product, :image, :fill, 300, 300) %>
 </p>
 <p>
