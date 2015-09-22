@@ -1,0 +1,45 @@
+<h1>Basket</h1>
+<% total = 0 %>
+<%#= form_tag("orders", method: :post) do%>
+  <table>
+  <% @products.each do |position| %>
+    <% if @basket[position.id.to_s] != 0 %>
+      <tr>
+        <td>
+            <%= image_tag attachment_url(position, :image, :fill, 40, 40) %>
+            <%= position.title%>
+        </td>
+        <td>
+          $<%= position.price%>
+        </td>
+        <td>
+          <%= @basket[position.id.to_s]%>
+            <%= form_tag("/basket", method: :add) do%>
+              <%= hidden_field "product", "id", value: position.id%>
+              <%= hidden_field 'product', "quantity", value: 1%>
+              <div><%= submit_tag '+' %></div>
+            <% end %>
+            <%= form_tag("/basket", method: :add) do%>
+              <%= hidden_field "product", "id", value: position.id%>
+              <%= hidden_field 'product', "quantity", value: -1%>
+              <div><%= submit_tag '-' %></div>
+            <% end %>
+            <%= form_tag("/basket", method: :add) do%>
+              <%= hidden_field "product", "id", value: position.id%>
+              <%= hidden_field 'product', "quantity", value: -@basket[position.id.to_s]%>
+              <div><%= submit_tag '-' %></div>
+            <% end %>
+        </td>
+        <td><%= @basket[position.id.to_s]*position.price%></td>
+        <% total += @basket[position.id.to_s]*position.price %>
+      </tr>
+    <% end %>
+  <% end %>
+  </table>
+<%# end %>
+<h2>Total: $<%= total%></h2>
+<%= form_for @order do |f|%>
+  <%= f.hidden_field "total", value: total %>
+  Enter your e-mail to checkout: <%= f.email_field "email", :required => 'required'%><br>
+  <%= f.submit %>
+<% end %>

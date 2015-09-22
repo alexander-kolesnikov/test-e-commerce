@@ -21,7 +21,6 @@
   </div>
   <div>
     <%= f.label :category %><br>
-    <%#= f.select("product", "category_id", Category.all.collect{|c| [c.title, c.id]}, {prompt: "Select category"})%>
     <%= f.collection_select(:category_id, Category.all, :id, :title, options = {prompt: "Select category"})%>
   </div>
   <div class="field">
