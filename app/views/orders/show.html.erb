@@ -4,11 +4,22 @@
   <strong>Email:</strong>
   <%= @order.email %>
 </p>
-
+<table>
+  <tr>
+    <td>Product</td>
+    <td>Quantity</td>
+  </tr>
+<% @order.order_details.each do |detail| %>
+  <tr>
+    <td><%= Product.find(detail.product_id).title%></td>
+    <td><%= detail.qty%>
+  </tr>
+<% end %>
+</table>
+  
 <p>
   <strong>Total:</strong>
   <%= @order.total %>
 </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

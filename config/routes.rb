@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get 'basket/' => 'basket#index'
 
-  resources :orders
+  resources :orders, only: [:show, :index, :create]
   resources :categories
   resources :products
   # resources :basket
