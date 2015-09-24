@@ -30,6 +30,12 @@ gem 'friendly_id'
 gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
 
+# Bootstrap
+gem 'bootstrap-sass', '~> 3.3.5'
+
+#kaminary allows for pagination of search results
+gem 'kaminari', '~> 0.16.3'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

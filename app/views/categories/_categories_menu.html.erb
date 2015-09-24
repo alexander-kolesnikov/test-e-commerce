@@ -1,0 +1,4 @@
+<h3>Select category:</h3>
+<% Category.all.each do |category| %>
+<%=link_to category.title, category, class: "list-group-item" %>
+<%end%>

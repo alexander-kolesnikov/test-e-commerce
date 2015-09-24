@@ -6,4 +6,6 @@ class Product < ActiveRecord::Base
   belongs_to :category
 
   validates :category, presence: true
+
+  paginates_per 18
 end

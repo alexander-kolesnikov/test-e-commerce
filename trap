@@ -1,0 +1,65 @@
+[33mcommit 4a09ac5eecee2a18fc988ca11d83c68440066d26[m
+Author: Kolesnikov Alexander <alexander.kolesnikov@teknavo.com>
+Date:   Sat Aug 22 22:20:31 2015 +0300
+
+    Order details are saving now
+
+[33mcommit 7c32317037ffb74ffeee12f3cb84d00478b1e5c9[m
+Author: Kolesnikov Alexander <alexander.kolesnikov@teknavo.com>
+Date:   Sat Aug 22 22:19:42 2015 +0300
+
+    added faker for data generation
+
+[33mcommit 0b1b79cd1486abe5db06274b75b18b9899e668ea[m
+Author: Kolesnikov Alexander <alexander.kolesnikov@teknavo.com>
+Date:   Tue Sep 22 20:48:59 2015 +0300
+
+    added order creation
+
+[33mcommit 847bd7d7ac2b47a6b0bc73966f223d89666b5561[m
+Author: Kolesnikov Alexander <alexander.kolesnikov@teknavo.com>
+Date:   Tue Sep 22 14:36:35 2015 +0300
+
+    orders
+
+[33mcommit 1492c848c62aa0af5511b00cee2a8e7c1fc64193[m
+Author: Kolesnikov Alexander <alexander.kolesnikov@teknavo.com>
+Date:   Mon Sep 21 19:57:55 2015 +0300
+
+    added association of products & categories
+
+[33mcommit 90095c2f819dcca62aa76f3a3c42606dfba2e503[m
+Author: Kolesnikov Alexander <alexander.kolesnikov@teknavo.com>
+Date:   Mon Sep 21 17:31:15 2015 +0300
+
+    added categories
+
+[33mcommit 1fb346914f5266fcd586dd01bcd340c5d7f1ca4b[m
+Author: Kolesnikov Alexander <alexander.kolesnikov@teknavo.com>
+Date:   Mon Sep 21 16:15:10 2015 +0300
+
+    added uploading images against products
+
+[33mcommit a31114c0dfb2486df68bf5771a510b0bf7b3c7fd[m
+Author: Kolesnikov Alexander <alexander.kolesnikov@teknavo.com>
+Date:   Mon Sep 21 12:27:53 2015 +0300
+
+    Added SEO-friendly URLs
+
+[33mcommit e8572aa8c1b9a2884056cabd2740132cdf3ca0ab[m
+Author: Kolesnikov Alexander <alexander.kolesnikov@teknavo.com>
+Date:   Mon Sep 21 12:19:56 2015 +0300
+
+    added Products
+
+[33mcommit 0e4ccd6a07597d5205732de1649deb10c1610405[m
+Author: Kolesnikov Alexander <alexander.kolesnikov@teknavo.com>
+Date:   Mon Sep 21 11:16:24 2015 +0300
+
+    added RSpec
+
+[33mcommit 95403da00b85961f1ae6bbac768ab55237dea3e9[m
+Author: Kolesnikov Alexander <alexander.kolesnikov@teknavo.com>
+Date:   Mon Sep 21 11:13:47 2015 +0300
+
+    Initial setup

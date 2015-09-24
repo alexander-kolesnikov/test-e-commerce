@@ -7,9 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href=<%=root_path%>> Test E-Commerce</a>
+      <div class="collapse navbar-collapse">
+        <div class="nav navbar-form navbar-right">
+          <%=link_to "View bag", basket_path, class: "btn btn-default" %>
+        </div>
+      </div>   
+    </div>
+  </nav>
 
-<%= yield %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  
+  <div class="container">
+    <%= yield %>
+  </div>
 
-</body>
 </html>
-<%= console %>

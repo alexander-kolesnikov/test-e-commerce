@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'products#index'
+
   post 'basket/' => 'basket#add'
 
   # get 'basket/delete'
