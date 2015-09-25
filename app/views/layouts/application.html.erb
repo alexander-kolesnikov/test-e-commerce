@@ -12,6 +12,8 @@
         <a class="navbar-brand" href=<%= params[:controller][0..4]!='admin' ? root_path : admin_root_path%>> Test E-Commerce</a>
       <div class="collapse navbar-collapse">
         <div class="nav navbar-form navbar-right">
+          <%= link_to("Admin dashboard", admin_root_path, class: "btn btn-default") if params[:controller][0..4]!='admin' %>
+          <%= link_to("Main page", root_path, class: "btn btn-default") if params[:controller][0..4]=='admin' %>
           <%= link_to("View basket", basket_path, class: "btn btn-default") if params[:controller][0..4]!='admin' %>
         </div>
       </div>   
@@ -24,5 +26,4 @@
   <div class="container">
     <%= yield %>
   </div>
-
 </html>

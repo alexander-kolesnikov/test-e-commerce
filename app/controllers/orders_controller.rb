@@ -27,8 +27,7 @@ class OrdersController < ApplicationController
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
 
-        @basket = ActiveSupport::JSON.decode(cookies["basket"])
-        p @basket
+        @basket = cookies["basket"] ? ActiveSupport::JSON.decode(cookies["basket"]) : {}
         @basket.each do |order_position|
           if order_position[1] > 0 then
             @order_detail = OrderDetail.create!(order: @order, product_id: order_position[0], qty: order_position[1])

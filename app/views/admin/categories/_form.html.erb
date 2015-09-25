@@ -1,4 +1,5 @@
-<%= form_for(@category, url: admin_category_path) do |f| %>
+<% path_for_category = @category.new_record? ? admin_categories_path : admin_category_path %>
+<%= form_for(@category, url: path_for_category) do |f| %>
   <% if @category.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>

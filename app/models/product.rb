@@ -4,8 +4,9 @@ class Product < ActiveRecord::Base
   attachment :image
 
   belongs_to :category
+  has_many :order_details, :dependent => :delete_all
 
-  validates :category, presence: true
+  validates :category, :title, :description, presence: true
   validates :price, presence: true, :numericality => { :greater_than => 0 }
   validates :stock_level, presence: true, :numericality => { :greater_than_or_equal_to => 0 }
 

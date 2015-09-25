@@ -9,17 +9,17 @@ Rails.application.routes.draw do
 
   get 'basket/' => 'basket#index'
 
-  resources :orders, only: [:show, :index, :create]
+  resources :orders, only: [:show, :create]
   resources :categories, only: [:show]
   resources :products
 
   namespace :admin do
     root 'dashboard#index'
 
-    resources :orders, only: [:show, :index, :create]
+    resources :orders, only: [:show, :index]
     resources :categories
     resources :products
-    resources :dashboard
+    resources :dashboard, only: [:index]
   end
 
 
