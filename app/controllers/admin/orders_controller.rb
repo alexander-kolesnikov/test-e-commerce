@@ -31,7 +31,6 @@ class Admin::OrdersController < ApplicationController
         p @basket
         @basket.each do |order_position|
           @order_detail = OrderDetail.create!(order: @order, product_id: order_position[0], qty: order_position[1])
-          p @order_detail
         end
       else
         format.html { render :new }

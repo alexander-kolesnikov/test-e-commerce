@@ -33,7 +33,6 @@ class OrdersController < ApplicationController
           if order_position[1] > 0 then
             @order_detail = OrderDetail.create!(order: @order, product_id: order_position[0], qty: order_position[1])
           end
-          p @order_detail
         end
       else
         format.html { render :new }
