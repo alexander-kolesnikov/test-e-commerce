@@ -19,7 +19,7 @@ class Admin::CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @products = @category.products.page(params[:page])
+    @products = @category.products.page(params[:page]).per(20)
   end
 
   # POST /categories
