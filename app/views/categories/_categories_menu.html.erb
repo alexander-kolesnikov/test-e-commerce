@@ -1,4 +1,5 @@
 <h3>Select category:</h3>
+<%cat_id = @category ? @category.id : 0 %>
 <% Category.all.each do |category| %>
-<%=link_to category.title, category, class: "list-group-item" %>
+<%=link_to category.title, category, class: "list-group-item #{cat_id == category.id ? "selected-list-group-item" : ""}" %>
 <%end%>

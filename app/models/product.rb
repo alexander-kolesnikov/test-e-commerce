@@ -7,5 +7,5 @@ class Product < ActiveRecord::Base
 
   validates :category, presence: true
 
-  paginates_per 18
+  paginates_per 9
 end
