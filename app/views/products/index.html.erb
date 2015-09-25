@@ -20,7 +20,7 @@
           <%= hidden_field "product", "id", value: product.id%>
           <%= hidden_field "product", "quantity", value: 1 %>
           <h4>$<%= product.price %>
-          <%= submit_tag 'Add to bag', class: "btn btn-default"%></h4>
+          <%= submit_tag 'Add to bag', class: "btn btn-default", disabled: product.stock_level == 0 ? true : false %></h4>
         <% end %>        
       </div>
     <% end %>

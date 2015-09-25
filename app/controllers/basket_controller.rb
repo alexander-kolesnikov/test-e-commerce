@@ -6,6 +6,9 @@ class BasketController < ApplicationController
       basket = {}
     end
     basket[params[:product][:id]] = basket[params[:product][:id]] ? basket[params[:product][:id]].to_i + params[:product][:quantity].to_i : params[:product][:quantity].to_i
+    if basket[params[:product][:id]] > Product.find(params[:product][:id]).stock_level then
+      basket[params[:product][:id]] = Product.find(params[:product][:id]).stock_level
+    end
     cookies["basket"] = ActiveSupport::JSON.encode(basket)
     redirect_to :back
   end
@@ -20,3 +23,4 @@ class BasketController < ApplicationController
     @order = Order.new
   end
 end
+

@@ -11,10 +11,10 @@
             <%= image_tag attachment_url(position, :image, :fill, 40, 40) %>
             <%= position.title%>
         </td>
-        <td>
+        <td class="text-right">
           $<%= position.price%>
         </td></div>
-        <td>
+        <td class="text-right">
           <%= @basket[position.id.to_s]%>
             <%= form_tag("/basket", method: :add, class: "inline-form") do%>
               <%= hidden_field "product", "id", value: position.id%>
@@ -31,8 +31,12 @@
               <%= hidden_field 'product', "quantity", value: -@basket[position.id.to_s]%>
               <%= image_submit_tag '', class: "glyphicon glyphicon-remove", alt: " " %>
             <% end %>
+            <% if @basket[position.id.to_s] > position.stock_level then %>
+              <br>
+              <span class="text-danger">Only <%= position.stock_level%> items available and will be added to order</span>
+            <% end %>
         </td>
-        <td><%= @basket[position.id.to_s]*position.price%></td>
+        <td class="text-right"><%= @basket[position.id.to_s]*position.price%></td>
         <% total += @basket[position.id.to_s]*position.price %>
       </tr>
     <% end %>
