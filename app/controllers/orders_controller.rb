@@ -30,7 +30,11 @@ class OrdersController < ApplicationController
         @basket = cookies["basket"] ? ActiveSupport::JSON.decode(cookies["basket"]) : {}
         @basket.each do |order_position|
           if order_position[1] > 0 then
-            @order_detail = OrderDetail.create!(order: @order, product_id: order_position[0], qty: order_position[1])
+            @order_detail = OrderDetail.new(order: @order, product_id: order_position[0], qty: order_position[1])
+            if @order_detail.save then
+              @product = Product.find(order_position[0])
+              @product.update!(stock_level: @product.stock_level - order_position[1])
+            end  
           end
         end
       else
