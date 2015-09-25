@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+<div class="col-xs-3 col-md-3">
+  <%= render partial: "admin/categories/categories_menu" %>
+</div>
+
+<div class="col-xs-9 col-md-9">
+<h3>Products</h3>
+  <div id="products" class="row list-group">
+    <% @products.each do |product| %>
+      <div class="item col-xs-6 col-lg-4">
+        <div class="thumbnail">
+          <%= image_tag attachment_url(product, :image, :fill, 150, 150) %>
+        </div>
+        <%= link_to product do%>
+          <h4 class="group inner list-group-item-heading">
+            <%= product.title %>
+          </h4>
+        <% end %>
+        <%= form_tag("/basket", method: :add) do%>
+          <%= hidden_field "product", "id", value: product.id%>
+          <%= hidden_field "product", "quantity", value: 1 %>
+          <h4>$<%= product.price %></h4>
+          <%= link_to 'Show', admin_product_path(product), class: "btn btn-default" %>
+          <%= link_to 'Edit', edit_admin_product_path(product), class: "btn btn-default" %>
+          <%= link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+
+        <% end %>        
+      </div>
+    <% end %>
+  </div>
+<%= link_to 'New Product', new_admin_product_path, class: "btn btn-default"%>  
+<nav>
+  <ul class="pagination">
+    <li>
+      <%= paginate @products%>
+    </li>
+  </ul>
+</nav>
+</div>
+
