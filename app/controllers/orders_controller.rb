@@ -30,7 +30,9 @@ class OrdersController < ApplicationController
         @basket = ActiveSupport::JSON.decode(cookies["basket"])
         p @basket
         @basket.each do |order_position|
-          @order_detail = OrderDetail.create!(order: @order, product_id: order_position[0], qty: order_position[1])
+          if order_position[1] > 0 then
+            @order_detail = OrderDetail.create!(order: @order, product_id: order_position[0], qty: order_position[1])
+          end
           p @order_detail
         end
       else
@@ -38,6 +40,7 @@ class OrdersController < ApplicationController
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
+    cookies["basket"] = "{}"
   end
 
   private

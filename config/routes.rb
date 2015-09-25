@@ -3,14 +3,22 @@ Rails.application.routes.draw do
 
   post 'basket/' => 'basket#add'
 
-  # get 'basket/delete'
-
   get 'basket/' => 'basket#index'
 
   resources :orders, only: [:show, :index, :create]
-  resources :categories
+  resources :categories, only: [:show]
   resources :products
-  # resources :basket
+
+  namespace :admin do
+    root 'dashboard#index'
+
+    resources :orders, only: [:show, :index, :create]
+    resources :categories
+    resources :products
+    resources :dashboard
+  end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

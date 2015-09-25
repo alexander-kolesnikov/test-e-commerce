@@ -1,7 +1,9 @@
-<h1>Basket</h1>
+<p id="notice"><%= notice %></p>
+<h3>Basket</h3>
+<div class="col-xs-12 col-md-12">
 <% total = 0 %>
 <%#= form_tag("orders", method: :post) do%>
-  <table>
+  <table class="table table-striped table-bordered">
   <% @products.each do |position| %>
     <% if @basket[position.id.to_s] != 0 %>
       <tr>
@@ -11,23 +13,23 @@
         </td>
         <td>
           $<%= position.price%>
-        </td>
+        </td></div>
         <td>
           <%= @basket[position.id.to_s]%>
-            <%= form_tag("/basket", method: :add) do%>
+            <%= form_tag("/basket", method: :add, class: "inline-form") do%>
               <%= hidden_field "product", "id", value: position.id%>
               <%= hidden_field 'product', "quantity", value: 1%>
-              <div><%= submit_tag '+' %></div>
+              <%= image_submit_tag '', class: "glyphicon glyphicon-plus", alt: " " %>
             <% end %>
-            <%= form_tag("/basket", method: :add) do%>
+            <%= form_tag("/basket", method: :add, class: "inline-form") do%>
               <%= hidden_field "product", "id", value: position.id%>
               <%= hidden_field 'product', "quantity", value: -1%>
-              <div><%= submit_tag '-' %></div>
+              <%= image_submit_tag '', class: "glyphicon glyphicon-minus", alt: " " %>
             <% end %>
-            <%= form_tag("/basket", method: :add) do%>
+            <%= form_tag("/basket", method: :add, class: "inline-form") do%>
               <%= hidden_field "product", "id", value: position.id%>
               <%= hidden_field 'product', "quantity", value: -@basket[position.id.to_s]%>
-              <div><%= submit_tag '-' %></div>
+              <%= image_submit_tag '', class: "glyphicon glyphicon-remove", alt: " " %>
             <% end %>
         </td>
         <td><%= @basket[position.id.to_s]*position.price%></td>
@@ -40,6 +42,7 @@
 <h2>Total: $<%= total%></h2>
 <%= form_for @order do |f|%>
   <%= f.hidden_field "total", value: total %>
-  Enter your e-mail to checkout: <%= f.email_field "email", :required => 'required'%><br>
+  Enter your e-mail to checkout: <%= f.email_field "email", :required => 'required', class: "btn btn-default" %><br>
   <%= f.submit %>
 <% end %>
+</div>

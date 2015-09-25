@@ -28,7 +28,7 @@
 </p>
 <%= form_tag("/basket", method: :add) do%>
   <%= hidden_field "product", "id", value: @product.id%>
-  <%= number_field_tag 'product[quantity]', 1, class: "btn btn-default"%>
+  <%= number_field_tag 'product[quantity]', 1, in: 1.. @product.stock_level, class: "btn btn-default"%>
   <%= submit_tag 'Add to bag', class: "btn btn-default"%>
 <% end %>
 </div>
